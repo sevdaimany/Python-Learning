@@ -7,7 +7,8 @@ root = Tk()
 root.geometry('400x200')
 root.resizable(width = False , height = False)
 root.title('calculator')
-color = 'mediumpurple'
+# color = 'mediumpurple'
+color = 'pink'
 root.configure(bg = color)
 #============================================================= frames ================================================================
 top_first = Frame(root, width = 400 ,height = 50 , bg = color)
@@ -29,16 +30,18 @@ answer =StringVar()
 
 
 #========================================================== buttons ============================================================================
-btn_plus = Button(top_third , text = '+' , width = 10 , bg = 'paleturquoise', command = lambda: operation('+'))
+# color ='paleturquoise'
+color ='aliceblue'
+btn_plus = Button(top_third , text = '+' , width = 10 , bg = color, command = lambda: operation('+'))
 btn_plus.pack(side= LEFT , padx = 5 ,pady = 5)
 
-btn_minus = Button(top_third , text = '-' , width = 10 , bg = 'paleturquoise', command = lambda: operation('-'))
+btn_minus = Button(top_third , text = '-' , width = 10 , bg = color, command = lambda: operation('-'))
 btn_minus.pack(side= LEFT , padx = 5 ,pady = 5)
 
-btn_mul = Button(top_third , text = '*' , width = 10 , bg = 'paleturquoise',  command = lambda: operation('*'))
+btn_mul = Button(top_third , text = '*' , width = 10 , bg = color ,  command = lambda: operation('*'))
 btn_mul.pack(side= LEFT , padx = 5 ,pady = 5)
 
-btn_div = Button(top_third , text = '/' , width = 10 , bg = 'paleturquoise', command = lambda: operation('/'))
+btn_div = Button(top_third , text = '/' , width = 10 , bg = color , command = lambda: operation('/'))
 btn_div.pack(side= LEFT , padx = 5 ,pady = 5)
 
 #========================================================== Entries and Labels ========================================================================
