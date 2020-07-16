@@ -1,4 +1,6 @@
 from tkinter import *
+import tkinter.messagebox
+
 
 #============================================================== settings ===========================================================
 root = Tk()
@@ -64,19 +66,36 @@ res_num.pack(side=LEFT)
 # ================================================== functions =======================================================================================
 
 def operation(inputOperation):
+    try:
     
-    if inputOperation == '+':
-       answer.set(float(num1.get()) + float(num2.get()))
+        if inputOperation == '+':
+             answer.set(float(num1.get()) + float(num2.get()))
 
-    elif inputOperation == '-':
-        answer.set(float(num1.get()) - float(num2.get()))
+        elif inputOperation == '-':
+            answer.set(float(num1.get()) - float(num2.get()))
 
-    elif inputOperation == '*':
-       answer.set(float(num1.get())  * float(num2.get()))
-           
+        elif inputOperation == '*':
+             answer.set(float(num1.get())  * float(num2.get()))
+            
+    except:
+        msgError('error')
 
-    elif inputOperation == '/':
-       answer.set(float(num1.get()) / float(num2.get()))
+    if inputOperation == '/':
+        if float(num2.get()) == 0:
+            msgError('division zero error')
+        else: 
+            try:
+                answer.set(float(num1.get()) / float(num2.get()))
+            except :
+                msgError('error')
+
+
+def msgError(msg):
+    if msg == 'error':
+        tkinter.messagebox.showerror('Error','something went wrong')
+    elif msg == 'division zero error' :
+        tkinter.messagebox.showerror('Division Error', 'Can Not Divide By 0')
+
            
 
 root.mainloop()
